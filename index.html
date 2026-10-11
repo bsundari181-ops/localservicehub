@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LocalServicesHub | Local Services</title>
+<link rel="icon" type="image/png" href="image.png">
+
+<style>
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #475569;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-btn {
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    background: white;
+}
+
+.login-btn:hover {
+    background: #eff6ff;
+}
+
+.signup-btn {
+    color: white;
+    background: #2563eb;
+}
+
+.signup-btn:hover {
+    background: #1d4ed8;
+}
+.menu-btn {
+    display: none;
+    font-size: 25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 600px;
+
+    background:
+    linear-gradient(
+        rgba(15, 23, 42, 0.78),
+        rgba(15, 23, 42, 0.78)
+    ),
+    url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+
+    padding: 8px;
+    border-radius: 9px;
+
+    display: flex;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+
+    padding: 14px;
+    font-size: 15px;
+}
+
+.search-box button {
+    background: #2563eb;
+    color: white;
+    border: none;
+
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.search-message {
+    margin-top: 15px;
+    color: #93c5fd;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.hero-buttons button {
+    padding: 13px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.find-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+}
+
+.provider-btn {
+    background: white;
+    color: #2563eb;
+    border: none;
+}
+
+
+/* ================= COMMON ================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #64748b;
+}
+
+
+/* ================= SERVICES ================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 25px 18px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+}
+
+.service-card h3 {
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.service-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.service-card button {
+    background: none;
+    border: none;
+
+    color: #2563eb;
+
+    font-weight: bold;
+}
+
+
+/* ================= HOW IT WORKS ================= */
+
+.how-section {
+    background: #f1f5f9;
+}
+
+.steps {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.step {
+    background: white;
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 12px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+.step h3 {
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ================= WHY US ================= */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.why-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.why-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ================= CTA ================= */
+
+.cta {
+    background: #2563eb;
+    color: white;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.cta h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #dbeafe;
+    margin-bottom: 25px;
+}
+
+.cta button {
+    background: white;
+    color: #2563eb;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #0f172a;
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 50px 25px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 35px;
+}
+
+.footer-logo {
+    color: #60a5fa;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.footer-column p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #1e293b;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .services-grid,
+    .steps,
+    .why-grid,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Local<span>ServicesHub</span>
+        </a>
+        <ul class="nav-links">
+
+    <li>
+        <a href="#home">Home</a>
+    </li>
+
+    <li>
+        <a href="#services">Services</a>
+    </li>
+
+    <li>
+        <a href="#how-it-works">
+            How It Works
+        </a>
+    </li>
+
+    <li>
+        <a href="#about">About</a>
+    </li>
+
+    <li>
+        <a href="reviews.html">
+            ⭐ Reviews
+        </a>
+    </li>
+
+    <li>
+        <a href="#contact">Contact</a>
+    </li>
+
+</ul>
+
+        
+        <div class="auth-buttons">
+            <div class="auth-buttons">
+
+    <a href="customer-dashboard.html"
+       class="login-btn"
+       id="dashboardBtn"
+       style="display:none;">
+        👤 Dashboard
+    </a>
+
+    <a href="login.html"
+       class="login-btn"
+       id="loginBtn">
+        🔐 Login
+    </a>
+
+    <a href="signup.html"
+       class="signup-btn"
+       id="signupBtn">
+        📝 Sign Up
+    </a>
+
+    <button
+       class="login-btn"
+       id="logoutBtn"
+       style="display:none;"
+       onclick="logoutUser()">
+        🚪 Logout
+    </button>
+
+</div>
+
+</div>
+
+
+        
+
+        </div>
+
+
+        <div
+            class="menu-btn"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Find Trusted
+            <span>Local Services</span>
+            Near You
+        </h1>
+
+        <p>
+            Connect with reliable local
+            professionals for your everyday needs.
+        </p>
+
+
+        <div class="search-box">
+
+            <input 
+    type="text"
+    id="searchInput"
+    placeholder="Search for a service..."
+    onclick="openSearchPage()">
+
+            <button onclick="searchService()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div
+            class="search-message"
+            id="searchMessage">
+        </div>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="find-btn"
+                onclick="goToServices()">
+
+                Find a Service
+
+            </button>
+
+            <button
+                class="provider-btn"
+                onclick="becomeProvider()">
+
+                Apply job
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section
+    class="section"
+    id="services">
+
+    <div class="section-title">
+
+        <h2>
+            Popular Services
+        </h2>
+
+        <p>
+            Choose from a wide range of
+            trusted local services.
+        </p>
+
+    </div>
+
+
+    <!-- JavaScript will create cards here -->
+
+    <div
+        class="services-grid"
+        id="servicesGrid">
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+    class="how-section"
+    id="how-it-works">
+
+    <div class="section">
+
+        <div class="section-title">
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                Get your service in three simple steps.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Choose a Service
+                </h3>
+
+                <p>
+                    Search and select the
+                    service you need.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Select a Provider
+                </h3>
+
+                <p>
+                    Compare providers,
+                    ratings and prices.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Book the Service
+                </h3>
+
+                <p>
+                    Select a suitable time
+                    and book your service.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section
+    class="section"
+    id="about">
+
+    <div class="section-title">
+
+        <h2>
+            Why Choose LocalServicesHub?
+        </h2>
+
+        <p>
+            We make finding local professionals
+            simple and convenient.
+        </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Trusted Professionals
+            </h3>
+
+            <p>
+                Find reliable service providers
+                in your local area.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Quick Booking
+            </h3>
+
+            <p>
+                Book the service you need
+                quickly and easily.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ⭐
+            </div>
+
+            <h3>
+                Ratings & Reviews
+            </h3>
+
+            <p>
+                Check ratings and reviews
+                before choosing a provider.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section
+    class="cta"
+    id="contact">
+
+    <h2>
+        Need a Local Service?
+    </h2>
+
+    <p>
+        Find the right professional
+        for your needs today.
+    </p>
+
+    <button onclick="goToServices()">
+        Get Started
+    </button>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <div class="footer-logo">
+                LocalServicesHub
+            </div>
+
+            <p>
+                Your platform for finding
+                reliable local service
+                professionals.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#how-it-works">
+                        How It Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Services
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#services">
+                        Plumbing
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Electrical
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Cleaning
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        AC Repair
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contact
+            </h4>
+
+            <p>
+                support@localserviceshub.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+            <p>
+                India
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 LocalServicesHub.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+    function openSearchPage() {
+    window.location.href = "search.html";
+}
+
+/* =========================
+   SERVICE DATA
+========================= */
+
+const services = [
+
+    ["🔧", "Plumbing",
+     "Pipe repair and installation"],
+
+    ["⚡", "Electrical",
+     "Electrical repair and wiring"],
+
+    ["🧹", "Home Cleaning",
+     "Professional cleaning services"],
+
+    ["❄️", "AC Repair",
+     "AC repair and maintenance"],
+
+    ["🎨", "Painting",
+     "Interior and exterior painting"],
+
+    ["🪚", "Carpentry",
+     "Furniture and woodwork"],
+
+    ["🚗", "Car Service",
+     "Car repair and maintenance"],
+
+    ["💻", "Computer Repair",
+     "Laptop and computer repair"],
+
+    ["📱", "Mobile Repair",
+     "Mobile phone repair"],
+
+    ["🔑", "Locksmith",
+     "Lock and key services"],
+
+    ["🏠", "Appliance Repair",
+     "Home appliance repair"],
+
+    ["🧺", "Washing Machine",
+     "Washing machine repair"],
+
+    ["🧊", "Refrigerator Repair",
+     "Refrigerator repair"],
+
+    ["📺", "TV Repair",
+     "LED and Smart TV repair"],
+
+    ["🌿", "Gardening",
+     "Garden maintenance"],
+
+    ["🚚", "Packers & Movers",
+     "Packing and moving services"],
+
+    ["🏍️", "Bike Service",
+     "Bike repair and maintenance"],
+
+    ["💇", "Beauty & Salon",
+     "Beauty and grooming services"],
+
+    ["💆", "Wellness",
+     "Personal wellness services"],
+
+    ["📚", "Home Tutoring",
+     "School and college tutoring"],
+
+    ["📸", "Photography",
+     "Event photography services"],
+
+    ["🖨️", "Printing",
+     "Printing and document services"],
+
+    ["🛍️", "Delivery",
+     "Local delivery services"],
+
+    ["🐕", "Pet Care",
+     "Pet care and grooming"]
+
+];
+
+
+
+/* =========================
+   DISPLAY SERVICES
+========================= */
+
+const servicesGrid =
+    document.getElementById("servicesGrid");
+
+
+services.forEach((service, index) => {
+
+    servicesGrid.innerHTML += `
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                ${service[0]}
+            </div>
+
+            <h3>
+                ${service[1]}
+            </h3>
+
+            <p>
+                ${service[2]}
+            </p>
+
+            <button
+                onclick="selectService(${index})">
+
+                Select Your problem →
+
+            </button>
+
+        </div>
+
+    `;
+
+});
+
+
+
+/* =========================
+   SELECT SERVICE
+========================= */
+function selectService(index) {
+
+    const serviceName = services[index][1];
+
+    const servicePages = {
+
+        "Plumbing": "plumbing-problems.html",
+        "Electrical": "electrical-problems.html",
+        "Home Cleaning": "cleaning-problems.html",
+        "AC Repair": "ac-problems.html",
+        "Painting": "painting-problems.html",
+        "Carpentry": "carpentry-problems.html",
+        "Car Service": "car-problems.html",
+        "Computer Repair": "computer-problems.html",
+        "Mobile Repair": "mobile-problems.html",
+        "Locksmith": "locksmith-problems.html",
+        "Appliance Repair": "appliance-problems.html",
+        "Washing Machine": "washing-machine-problems.html",
+        "Refrigerator Repair": "refrigerator-problems.html",
+        "TV Repair": "tv-problems.html",
+
+        "Gardening": "gardening-problems.html",
+        "Packers & Movers": "packers-problems.html",
+        "Bike Service": "bike-problems.html",
+        "Beauty & Salon": "beauty-problems.html",
+        "Wellness": "wellness-problems.html",
+        "Home Tutoring": "tutoring-problems.html",
+        "Photography": "photography-problems.html",
+        "Printing": "printing-problems.html",
+        "Delivery": "delivery-problems.html",
+        "Pet Care": "petcare-problems.html"
+    };
+
+    if (servicePages[serviceName]) {
+
+        window.location.href = servicePages[serviceName];
+
+    } else {
+
+        alert("Service page is not available yet.");
+
+    }
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchService() {
+
+    const input = document.getElementById("searchInput").value.trim();
+
+    if (input === "") {
+        alert("Please enter a service name.");
+        return;
+    }
+
+    window.location.href =
+        "search.html?search=" + encodeURIComponent(input);
+}
+
+
+
+/* =========================
+   FIND SERVICE
+========================= */
+
+function goToServices() {
+
+    document
+        .getElementById("services")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login() {
+
+    alert(
+        "Login page will be connected later."
+    );
+
+}
+
+
+
+/* =========================
+   SIGN UP
+========================= */
+
+function signup() {
+
+    alert(
+        "Registration page will be connected later."
+    );
+
+}
+
+
+
+/* =========================
+   PROVIDER
+========================= */
+
+function becomeProvider() {
+
+    alert(
+        "Provider registration will be connected later."
+    );
+
+}
+
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu() {
+
+    const links =
+        document.querySelector(".nav-links");
+
+
+    if (links.style.display === "flex") {
+
+        links.style.display = "none";
+
+    } else {
+
+        links.style.display = "flex";
+
+        links.style.flexDirection = "column";
+
+        links.style.position = "absolute";
+
+        links.style.top = "65px";
+
+        links.style.left = "0";
+
+        links.style.width = "100%";
+
+        links.style.background = "white";
+
+        links.style.padding = "20px";
+
+    }
+
+}
+
+
+
+/* =========================
+   ENTER KEY SEARCH
+========================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keypress",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                searchService();
+
+            }
+
+        }
+    );
+    // ================= LOGIN STATUS =================
+
+const userEmail = localStorage.getItem("userEmail");
+
+if (userEmail) {
+
+    document.getElementById("dashboardBtn").style.display = "inline-block";
+
+    document.getElementById("loginBtn").style.display = "none";
+
+    document.getElementById("signupBtn").style.display = "none";
+
+    document.getElementById("logoutBtn").style.display = "inline-block";
+
+}
+
+
+// ================= LOGOUT =================
+
+function logoutUser() {
+
+    localStorage.removeItem("userEmail");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>

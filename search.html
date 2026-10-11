@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search Services | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.back-btn {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* SEARCH SECTION */
+
+.search-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+}
+
+
+/* SEARCH BOX */
+
+.search-box {
+    background: white;
+    border: 1px solid #dbeafe;
+
+    padding: 8px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px;
+
+    font-size: 16px;
+}
+
+.search-box button {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+
+/* RESULTS */
+
+.results {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.service-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.08);
+}
+
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+}
+
+
+.service-card h3 {
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+.service-card button {
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.no-result {
+    text-align: center;
+
+    margin-top: 40px;
+
+    color: #64748b;
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            Local<span>ServicesHub</span>
+        </div>
+
+        <a
+            href="index.html"
+            class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+
+    <div class="title">
+
+        <h1>
+            Search Local Services
+        </h1>
+
+        <p>
+            Start typing to find a service
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for a service..."
+            autocomplete="off">
+
+        <button
+            onclick="searchService()">
+
+            Search
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="results"
+        id="results">
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+
+/* =================================
+   SERVICE LIST
+================================= */
+const services = [
+
+    {
+        icon: "🔧",
+        name: "Plumbing",
+        description: "Pipe repair and installation",
+        page: "plumbing-problems.html"
+    },
+
+    {
+        icon: "⚡",
+        name: "Electrical",
+        description: "Electrical repair and wiring",
+        page: "electrical-problems.html"
+    },
+
+    {
+        icon: "🧹",
+        name: "Home Cleaning",
+        description: "Professional home cleaning",
+        page: "home-cleaning-problems.html"
+    },
+
+    {
+        icon: "❄️",
+        name: "AC Repair",
+        description: "AC repair and maintenance",
+        page: "ac-repair-problems.html"
+    },
+
+    {
+        icon: "🎨",
+        name: "Painting",
+        description: "Interior and exterior painting",
+        page: "painting-problems.html"
+    },
+
+    {
+        icon: "🪚",
+        name: "Carpentry",
+        description: "Furniture and woodwork",
+        page: "carpentry-problems.html"
+    },
+
+    {
+        icon: "🚗",
+        name: "Car Service",
+        description: "Car repair and maintenance",
+        page: "car-service-problems.html"
+    },
+
+    {
+        icon: "💻",
+        name: "Computer Repair",
+        description: "Laptop and computer repair",
+        page: "computer-repair-problems.html"
+    },
+
+    {
+        icon: "📱",
+        name: "Mobile Repair",
+        description: "Mobile phone repair",
+        page: "mobile-repair-problems.html"
+    },
+
+    {
+        icon: "🔑",
+        name: "Locksmith",
+        description: "Lock and key services",
+        page: "locksmith-problems.html"
+    },
+
+    {
+        icon: "🏠",
+        name: "Home Appliances",
+        description: "Home appliance repair",
+        page: "home-appliances-problems.html"
+    },
+
+    {
+        icon: "🧺",
+        name: "Washing Machine",
+        description: "Washing machine repair",
+        page: "washing-machine-problems.html"
+    },
+
+    {
+        icon: "🧊",
+        name: "Refrigerator Repair",
+        description: "Refrigerator repair and service",
+        page: "refrigerator-problems.html"
+    },
+
+    {
+        icon: "📺",
+        name: "TV Repair",
+        description: "LED and Smart TV repair",
+        page: "tv-repair-problems.html"
+    },
+
+    {
+        icon: "🌿",
+        name: "Gardening",
+        description: "Garden maintenance services",
+        page: "gardening-problems.html"
+    },
+
+    {
+        icon: "🚚",
+        name: "Packers & Movers",
+        description: "Packing and moving services",
+        page: "packers-movers-problems.html"
+    },
+
+    {
+        icon: "🏍️",
+        name: "Bike Service",
+        description: "Bike repair and maintenance",
+        page: "bike-service-problems.html"
+    },
+
+    {
+        icon: "💇",
+        name: "Beauty & Salon",
+        description: "Beauty and grooming services",
+        page: "beauty-salon-problems.html"
+    },
+
+    {
+        icon: "💆",
+        name: "Wellness",
+        description: "Personal wellness services",
+        page: "wellness-problems.html"
+    },
+
+    {
+        icon: "📚",
+        name: "Home Tutoring",
+        description: "School and college tutoring",
+        page: "home-tutoring-problems.html"
+    },
+
+    {
+        icon: "📸",
+        name: "Photography",
+        description: "Event photography services",
+        page: "photography-problems.html"
+    },
+
+    {
+        icon: "🖨️",
+        name: "Printing",
+        description: "Printing and document services",
+        page: "printing-problems.html"
+    },
+
+    {
+        icon: "🛍️",
+        name: "Delivery",
+        description: "Local delivery services",
+        page: "delivery-problems.html"
+    },
+
+    {
+        icon: "🐕",
+        name: "Pet Care",
+        description: "Pet care and grooming",
+        page: "pet-care-problems.html"
+    }
+
+];
+
+
+
+/* =================================
+   ELEMENTS
+================================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const results =
+    document.getElementById("results");
+
+
+
+/* =================================
+   LIVE SEARCH
+================================= */
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        const text =
+            searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+        /* EMPTY */
+
+        if (text === "") {
+
+            results.innerHTML = "";
+
+            return;
+
+        }
+
+
+        /* FIND MATCHES */
+
+        const matchedServices =
+            services.filter(function(service) {
+
+                return service.name
+                    .toLowerCase()
+                    .includes(text);
+
+            });
+
+
+        /* CLEAR OLD RESULTS */
+
+        results.innerHTML = "";
+
+
+        /* NO MATCH */
+
+        if (matchedServices.length === 0) {
+
+            results.innerHTML = `
+
+                <div class="no-result">
+
+                    <h2>
+                        No service found
+                    </h2>
+
+                    <p>
+                        Try typing another service.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /* SHOW MATCHING SERVICES */
+
+        matchedServices.forEach(function(service) {
+
+            results.innerHTML += `
+
+                <div
+                    class="service-card"
+                    onclick="selectService('${service.page}')">
+
+
+                    <div class="service-icon">
+
+                        ${service.icon}
+
+                    </div>
+
+
+                    <h3>
+
+                        ${service.name}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${service.description}
+
+                    </p>
+
+
+                    <button
+                        onclick="event.stopPropagation(); selectService('${service.page}')">
+
+                        Select Service →
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+        });
+
+    }
+);
+
+
+
+/* =================================
+   SELECT SERVICE
+================================= */
+
+function selectService(page) {
+
+    window.location.href = page;
+
+}
+
+
+
+/* =================================
+   SEARCH BUTTON
+================================= */
+
+function searchService() {
+
+    const text =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    if (text === "") {
+
+        alert("Please enter a service name.");
+
+        return;
+
+    }
+
+
+    const matched =
+        services.find(function(service) {
+
+            return service.name
+                .toLowerCase()
+                .includes(text);
+
+        });
+
+
+    if (matched) {
+
+        window.location.href =
+            matched.page;
+
+    } else {
+
+        alert("Service not found.");
+
+    }
+
+}
+
+
+/* =================================
+   ENTER KEY
+================================= */
+
+searchInput.addEventListener(
+    "keypress",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            searchService();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
+

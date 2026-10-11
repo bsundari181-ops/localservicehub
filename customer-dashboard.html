@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Dashboard | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.home-btn {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.title p {
+    color: #64748b;
+}
+
+.booking-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.booking-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.booking-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.booking-info p {
+    color: #475569;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: bold;
+}
+
+.no-bookings {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.no-bookings p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.services-btn {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    .booking-info {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            Local<span>ServicesHub</span>
+        </div>
+
+        <a href="index.html" class="home-btn">
+            🏠 Home
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <div class="title">
+
+        <h1>👤 Customer Dashboard</h1>
+
+        <p>
+            View your LocalServicesHub bookings.
+        </p>
+
+    </div>
+
+
+    <div id="bookingsContainer">
+
+        <p>Loading bookings...</p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+async function loadBookings() {
+
+    const container =
+        document.getElementById("bookingsContainer");
+
+    try {
+
+        const response =
+            await fetch("http://localhost:5000/bookings");
+
+        const bookings =
+            await response.json();
+
+
+        if (bookings.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="no-bookings">
+
+                    <h2>📅 No Bookings Yet</h2>
+
+                    <p>
+                        You have not booked any services yet.
+                    </p>
+
+                    <a
+                        href="index.html"
+                        class="services-btn">
+
+                        Find a Service
+
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML = "";
+
+
+        bookings.forEach(function(booking) {
+
+            container.innerHTML += `
+
+                <div class="booking-card">
+
+                    <h3>
+                        📅 Booking #${booking.id}
+                    </h3>
+
+                    <div class="booking-info">
+
+                        <p>
+                            <strong>Customer:</strong>
+                            ${booking.customer_name}
+                        </p>
+
+                        <p>
+                            <strong>Mobile:</strong>
+                            ${booking.mobile}
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            ${booking.email}
+                        </p>
+
+                        <p>
+                            <strong>Date:</strong>
+                            ${booking.booking_date}
+                        </p>
+
+                        <p>
+                            <strong>Time:</strong>
+                            ${booking.booking_time}
+                        </p>
+
+                        <p>
+                            <strong>Service Type:</strong>
+                            ${booking.service_type}
+                        </p>
+
+                        <p>
+                            <strong>Address:</strong>
+                            ${booking.service_address}
+                        </p>
+
+                        <p>
+                            <strong>Details:</strong>
+                            ${booking.additional_details || "None"}
+                        </p>
+
+                    </div>
+
+                    <span class="status">
+                        ${booking.status || "Pending"}
+                    </span>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        container.innerHTML = `
+
+            <div class="no-bookings">
+
+                <h2>❌ Cannot Load Bookings</h2>
+
+                <p>
+                    Make sure the Node.js backend is running.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+loadBookings();
+
+</script>
+
+</body>
+
+</html>

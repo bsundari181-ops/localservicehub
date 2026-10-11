@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Services | LocalServicesHub</title>
+
+<style>
+
+/* ===== RESET ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #475569;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 9px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn {
+    background: white;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+.signup-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* ===== PAGE HEADER ===== */
+
+.page-header {
+    background: #eff6ff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.page-header h1 span {
+    color: #2563eb;
+}
+
+.page-header p {
+    color: #64748b;
+    font-size: 17px;
+}
+
+
+/* ===== SEARCH ===== */
+
+.search-section {
+    max-width: 900px;
+    margin: -25px auto 0;
+    padding: 0 20px;
+    position: relative;
+}
+
+.search-box {
+    background: white;
+    padding: 8px;
+
+    display: flex;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px;
+
+    font-size: 15px;
+}
+
+.search-box button {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    padding: 12px 25px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ===== FILTER ===== */
+
+.filter-section {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 45px 25px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.filter-section h2 {
+    color: #0f172a;
+}
+
+select {
+    padding: 11px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: white;
+
+    outline: none;
+}
+
+
+/* ===== SERVICES ===== */
+
+.services-container {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 20px 25px 70px;
+}
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 25px 18px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+
+    background: #eff6ff;
+
+    border-radius: 50%;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+}
+
+.service-card h3 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    min-height: 42px;
+
+    margin-bottom: 18px;
+}
+
+.service-card button {
+    width: 100%;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.service-card button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ===== NO RESULT ===== */
+
+.no-result {
+    text-align: center;
+
+    padding: 50px;
+
+    color: #64748b;
+
+    display: none;
+}
+
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #0f172a;
+    color: white;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 50px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap: 35px;
+}
+
+.footer-logo {
+    color: #60a5fa;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #1e293b;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ===== NAVBAR ===== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Local<span>ServicesHub</span>
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="#how">
+                    How It Works
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-buttons">
+
+            <button
+                class="login-btn"
+                onclick="login()">
+
+                Login
+
+            </button>
+
+            <button
+                class="signup-btn"
+                onclick="signup()">
+
+                Sign Up
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="menu-btn"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ===== PAGE HEADER ===== -->
+
+<section class="page-header">
+
+    <h1>
+        Explore Our
+        <span>Services</span>
+    </h1>
+
+    <p>
+        Find trusted professionals
+        for your everyday needs.
+    </p>
+
+</section>
+
+
+
+<!-- ===== SEARCH ===== -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search services...">
+
+        <button onclick="searchServices()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===== FILTER ===== -->
+
+<div class="filter-section">
+
+    <h2>
+        All Services
+    </h2>
+
+
+    <select
+        id="categoryFilter"
+        onchange="filterServices()">
+
+        <option value="all">
+            All Services
+        </option>
+
+        <option value="home">
+            Home Services
+        </option>
+
+        <option value="repair">
+            Repair Services
+        </option>
+
+        <option value="personal">
+            Personal Services
+        </option>
+
+        <option value="other">
+            Other Services
+        </option>
+
+    </select>
+
+</div>
+
+
+
+<!-- ===== SERVICE GRID ===== -->
+
+<section class="services-container">
+
+    <div
+        class="services-grid"
+        id="servicesGrid">
+    </div>
+
+
+    <div
+        class="no-result"
+        id="noResult">
+
+        <h3>
+            No services found
+        </h3>
+
+        <p>
+            Try another service name.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-column">
+
+            <div class="footer-logo">
+                LocalServicesHub
+            </div>
+
+            <p>
+                Find reliable local
+                professionals easily
+                and conveniently.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Support
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        FAQ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contact
+            </h4>
+
+            <p>
+                support@localserviceshub.com
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+            <p>
+                India
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 LocalServicesHub.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   SERVICE DATA
+========================= */
+
+const services = [
+
+    {
+        icon: "🔧",
+        name: "Plumbing",
+        description: "Pipe repair and installation",
+        category: "home"
+    },
+
+    {
+        icon: "⚡",
+        name: "Electrical",
+        description: "Electrical repair and wiring",
+        category: "home"
+    },
+
+    {
+        icon: "🧹",
+        name: "Home Cleaning",
+        description: "Professional cleaning services",
+        category: "home"
+    },
+
+    {
+        icon: "❄️",
+        name: "AC Repair",
+        description: "AC repair and maintenance",
+        category: "repair"
+    },
+
+    {
+        icon: "🎨",
+        name: "Painting",
+        description: "Interior and exterior painting",
+        category: "home"
+    },
+
+    {
+        icon: "🪚",
+        name: "Carpentry",
+        description: "Furniture and woodwork",
+        category: "home"
+    },
+
+    {
+        icon: "🚗",
+        name: "Car Service",
+        description: "Car repair and maintenance",
+        category: "repair"
+    },
+
+    {
+        icon: "💻",
+        name: "Computer Repair",
+        description: "Laptop and computer repair",
+        category: "repair"
+    },
+
+    {
+        icon: "📱",
+        name: "Mobile Repair",
+        description: "Mobile phone repair",
+        category: "repair"
+    },
+
+    {
+        icon: "🔑",
+        name: "Locksmith",
+        description: "Lock and key services",
+        category: "repair"
+    },
+
+    {
+        icon: "🏠",
+        name: "Appliance Repair",
+        description: "Home appliance repair",
+        category: "repair"
+    },
+
+    {
+        icon: "🧺",
+        name: "Washing Machine",
+        description: "Washing machine repair",
+        category: "repair"
+    },
+
+    {
+        icon: "🧊",
+        name: "Refrigerator Repair",
+        description: "Refrigerator repair",
+        category: "repair"
+    },
+
+    {
+        icon: "📺",
+        name: "TV Repair",
+        description: "LED and Smart TV repair",
+        category: "repair"
+    },
+
+    {
+        icon: "🌿",
+        name: "Gardening",
+        description: "Garden maintenance",
+        category: "home"
+    },
+
+    {
+        icon: "🚚",
+        name: "Packers & Movers",
+        description: "Packing and moving services",
+        category: "other"
+    },
+
+    {
+        icon: "🏍️",
+        name: "Bike Service",
+        description: "Bike repair and maintenance",
+        category: "repair"
+    },
+
+    {
+        icon: "💇",
+        name: "Beauty & Salon",
+        description: "Beauty and grooming",
+        category: "personal"
+    },
+
+    {
+        icon: "💆",
+        name: "Wellness",
+        description: "Personal wellness services",
+        category: "personal"
+    },
+
+    {
+        icon: "📚",
+        name: "Home Tutoring",
+        description: "School and college tutoring",
+        category: "personal"
+    },
+
+    {
+        icon: "📸",
+        name: "Photography",
+        description: "Event photography",
+        category: "other"
+    },
+
+    {
+        icon: "🖨️",
+        name: "Printing",
+        description: "Printing and document services",
+        category: "other"
+    },
+
+    {
+        icon: "🛍️",
+        name: "Delivery",
+        description: "Local delivery services",
+        category: "other"
+    },
+
+    {
+        icon: "🐕",
+        name: "Pet Care",
+        description: "Pet care and grooming",
+        category: "personal"
+    }
+
+];
+
+
+
+/* =========================
+   DISPLAY SERVICES
+========================= */
+
+function displayServices(list) {
+
+    const grid =
+        document.getElementById("servicesGrid");
+
+    const noResult =
+        document.getElementById("noResult");
+
+
+    grid.innerHTML = "";
+
+
+    if (list.length === 0) {
+
+        noResult.style.display = "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display = "none";
+
+
+    list.forEach((service, index) => {
+
+        grid.innerHTML += `
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ${service.icon}
+                </div>
+
+                <h3>
+                    ${service.name}
+                </h3>
+
+                <p>
+                    ${service.description}
+                </p>
+
+                <button
+                    onclick="selectService(${index})">
+
+                    Find Provider →
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchServices() {
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const filtered =
+        services.filter(service =>
+            service.name
+            .toLowerCase()
+            .includes(search)
+        );
+
+
+    displayServices(filtered);
+
+}
+
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterServices() {
+
+    const category =
+        document
+        .getElementById("categoryFilter")
+        .value;
+
+
+    if (category === "all") {
+
+        displayServices(services);
+
+        return;
+
+    }
+
+
+    const filtered =
+        services.filter(service =>
+            service.category === category
+        );
+
+
+    displayServices(filtered);
+
+}
+
+
+
+/* =========================
+   SELECT SERVICE
+========================= */
+
+function selectService(index) {
+
+    alert(
+        "Provider search for this service will be connected later."
+    );
+
+}
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login() {
+
+    alert(
+        "Login page will be added next."
+    );
+
+}
+
+
+
+/* =========================
+   SIGN UP
+========================= */
+
+function signup() {
+
+    alert(
+        "Registration page will be added later."
+    );
+
+}
+
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu() {
+
+    const links =
+        document.querySelector(".nav-links");
+
+
+    if (links.style.display === "flex") {
+
+        links.style.display = "none";
+
+    } else {
+
+        links.style.display = "flex";
+
+        links.style.flexDirection = "column";
+
+        links.style.position = "absolute";
+
+        links.style.top = "65px";
+
+        links.style.left = "0";
+
+        links.style.width = "100%";
+
+        links.style.background = "white";
+
+        links.style.padding = "20px";
+
+    }
+
+}
+
+
+
+/* =========================
+   ENTER KEY SEARCH
+========================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keypress",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                searchServices();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================
+   INITIAL DISPLAY
+========================= */
+
+displayServices(services);
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+const searchValue =
+    urlParams.get("search");
+
+
+function searchServices(value = null) {
+
+    const search =
+        (value !== null
+            ? value
+            : document.getElementById("searchInput").value)
+        .toLowerCase()
+        .trim();
+
+
+    const filtered =
+        services.filter(service =>
+            service.name
+                .toLowerCase()
+                .includes(search) ||
+
+            service.description
+                .toLowerCase()
+                .includes(search)
+        );
+
+
+    document.getElementById("searchInput").value =
+        search;
+
+    displayServices(filtered);
+}
+
+
+/* Search from Home page */
+
+if (searchValue) {
+
+    searchServices(searchValue);
+
+}
+else {
+
+    displayServices(services);
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Printing | LocalServicesHub</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#f8fafc;color:#1e293b}
+.logo{padding:20px 30px;background:white;border-bottom:1px solid #ddd;font-size:24px;font-weight:bold;color:#2563eb}.logo span{color:#0f172a}
+.container{max-width:1100px;margin:auto;padding:55px 20px}.title{text-align:center;margin-bottom:40px}.title h1{font-size:36px;margin-bottom:10px}.title p{color:#64748b}
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.problem-card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:25px;text-align:center}.problem-icon{font-size:35px;margin-bottom:15px}.problem-card h3{margin-bottom:10px}.problem-card p{color:#64748b;font-size:14px;margin-bottom:15px}.select-btn{background:#2563eb;color:white;border:0;padding:11px 20px;border-radius:7px;font-weight:bold}.back-btn{display:block;width:180px;margin:40px auto;padding:12px;text-align:center;color:#2563eb;border:1px solid #2563eb;border-radius:7px;font-weight:bold}
+@media(max-width:800px){.problems{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.problems{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="logo">Local<span>ServicesHub</span></div>
+<div class="container">
+<div class="title"><h1>🖨️ Printing Services</h1><p>What printing service do you need?</p></div>
+<div class="problems">
+
+<div class="problem-card"><div class="problem-icon">📄</div><h3>Document Printing</h3><p>Print documents and files.</p><button class="select-btn" onclick="selectProblem('Document Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🎨</div><h3>Color Printing</h3><p>High-quality color printing.</p><button class="select-btn" onclick="selectProblem('Color Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">⚫</div><h3>Black & White Printing</h3><p>Black and white document printing.</p><button class="select-btn" onclick="selectProblem('Black and White Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">📑</div><h3>Photocopy</h3><p>Document photocopy service.</p><button class="select-btn" onclick="selectProblem('Photocopy')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">📕</div><h3>Book Binding</h3><p>Professional document binding.</p><button class="select-btn" onclick="selectProblem('Book Binding')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🪪</div><h3>ID Card Printing</h3><p>Printing ID cards and badges.</p><button class="select-btn" onclick="selectProblem('ID Card Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">📰</div><h3>Brochure Printing</h3><p>Brochures and promotional printing.</p><button class="select-btn" onclick="selectProblem('Brochure Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">💳</div><h3>Business Card Printing</h3><p>Professional business cards.</p><button class="select-btn" onclick="selectProblem('Business Card Printing')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🖼️</div><h3>Photo Printing</h3><p>Print photos in different sizes.</p><button class="select-btn" onclick="selectProblem('Photo Printing')">Find Provider</button></div>
+
+</div>
+<a href="index.html" class="back-btn">← Back to Services</a>
+</div>
+<script>
+function selectProblem(problem){
+window.location.href="printing-providers.html?problem="+encodeURIComponent(problem);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Appliance Repair | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: white;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+}
+
+/* PROBLEMS */
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.problem-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.problem-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    background: #1d4ed8;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: block;
+    width: 180px;
+    margin: 40px auto 0;
+    padding: 12px;
+    text-align: center;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .problems {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .problems {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+```
+<div class="logo">
+    Local<span>ServicesHub</span>
+</div>
+```
+
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+```
+<div class="title">
+
+    <h1>
+        🏠 Home Appliance Repair
+    </h1>
+
+    <p>
+        Which appliance problem do you have?
+    </p>
+
+</div>
+
+
+<div class="problems">
+
+
+    <!-- 1 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🧊
+        </div>
+
+        <h3>
+            Refrigerator Problem
+        </h3>
+
+        <p>
+            Refrigerator not cooling, leaking or making noise.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Refrigerator Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🧺
+        </div>
+
+        <h3>
+            Washing Machine Problem
+        </h3>
+
+        <p>
+            Washing machine not working, draining or spinning.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Washing Machine Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            📺
+        </div>
+
+        <h3>
+            TV Problem
+        </h3>
+
+        <p>
+            TV display, sound or power problems.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🍳
+        </div>
+
+        <h3>
+            Microwave Problem
+        </h3>
+
+        <p>
+            Microwave not heating or turning on.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Microwave Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🌀
+        </div>
+
+        <h3>
+            Mixer Grinder Problem
+        </h3>
+
+        <p>
+            Mixer not starting, making noise or overheating.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Mixer Grinder Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔥
+        </div>
+
+        <h3>
+            Gas Stove Problem
+        </h3>
+
+        <p>
+            Burner, ignition and stove-related service.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Gas Stove Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            ☕
+        </div>
+
+        <h3>
+            Coffee / Tea Maker Problem
+        </h3>
+
+        <p>
+            Repair and maintenance of coffee and tea makers.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Coffee Tea Maker Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            💨
+        </div>
+
+        <h3>
+            Air Cooler Problem
+        </h3>
+
+        <p>
+            Cooler not cooling, leaking or making noise.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Air Cooler Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔥
+        </div>
+
+        <h3>
+            Water Heater Problem
+        </h3>
+
+        <p>
+            Water heater not heating or power problems.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Water Heater Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🧹
+        </div>
+
+        <h3>
+            Vacuum Cleaner Problem
+        </h3>
+
+        <p>
+            Vacuum cleaner repair and maintenance.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Vacuum Cleaner Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🍞
+        </div>
+
+        <h3>
+            Oven Problem
+        </h3>
+
+        <p>
+            Oven heating, power and temperature problems.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Oven Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🛠️
+        </div>
+
+        <h3>
+            Other Appliance Problem
+        </h3>
+
+        <p>
+            Get help with other home appliance problems.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Other Appliance Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<a href="index.html" class="back-btn">
+    ← Back to Services
+</a>
+```
+
+</div>
+
+<script>
+
+function selectProblem(problem) {
+
+    window.location.href =
+        "appliance-providers.html?problem=" +
+        encodeURIComponent(problem);
+
+}
+
+</script>
+
+</body>
+
+</html>

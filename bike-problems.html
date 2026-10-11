@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bike Service | LocalServicesHub</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#f8fafc;color:#1e293b}
+.logo{padding:20px 30px;background:white;border-bottom:1px solid #ddd;font-size:24px;font-weight:bold;color:#2563eb}
+.logo span{color:#0f172a}
+.container{max-width:1100px;margin:auto;padding:55px 20px}
+.title{text-align:center;margin-bottom:40px}
+.title h1{font-size:36px;margin-bottom:10px}
+.title p{color:#64748b}
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.problem-card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:25px;text-align:center}
+.problem-icon{font-size:35px;margin-bottom:15px}
+.problem-card h3{margin-bottom:10px}
+.problem-card p{color:#64748b;font-size:14px;margin-bottom:15px}
+.select-btn{background:#2563eb;color:white;border:0;padding:11px 20px;border-radius:7px;font-weight:bold}
+.back-btn{display:block;width:180px;margin:40px auto;padding:12px;text-align:center;color:#2563eb;border:1px solid #2563eb;border-radius:7px;font-weight:bold}
+@media(max-width:800px){.problems{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.problems{grid-template-columns:1fr}}
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">Local<span>ServicesHub</span></div>
+
+<div class="container">
+
+<div class="title">
+<h1>🏍️ Bike Service</h1>
+<p>What bike service do you need?</p>
+</div>
+
+<div class="problems">
+
+<div class="problem-card"><div class="problem-icon">🔧</div><h3>General Bike Service</h3><p>Complete bike inspection and service.</p><button class="select-btn" onclick="selectProblem('General Bike Service')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🛢️</div><h3>Engine Oil Change</h3><p>Engine oil replacement and service.</p><button class="select-btn" onclick="selectProblem('Engine Oil Change')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🔋</div><h3>Battery Problem</h3><p>Bike battery checking and replacement.</p><button class="select-btn" onclick="selectProblem('Battery Problem')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🛞</div><h3>Tyre Problem</h3><p>Tyre puncture and replacement service.</p><button class="select-btn" onclick="selectProblem('Tyre Problem')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">⚙️</div><h3>Brake Problem</h3><p>Brake inspection and repair.</p><button class="select-btn" onclick="selectProblem('Brake Problem')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">💡</div><h3>Light Problem</h3><p>Headlight and indicator repair.</p><button class="select-btn" onclick="selectProblem('Light Problem')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🔑</div><h3>Starting Problem</h3><p>Bike does not start properly.</p><button class="select-btn" onclick="selectProblem('Starting Problem')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🔊</div><h3>Engine Noise</h3><p>Unusual engine sound inspection.</p><button class="select-btn" onclick="selectProblem('Engine Noise')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">⛓️</div><h3>Chain Service</h3><p>Chain cleaning, adjustment and replacement.</p><button class="select-btn" onclick="selectProblem('Chain Service')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🧽</div><h3>Bike Cleaning</h3><p>Professional bike cleaning.</p><button class="select-btn" onclick="selectProblem('Bike Cleaning')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🎨</div><h3>Bike Painting</h3><p>Bike body painting and touch-up.</p><button class="select-btn" onclick="selectProblem('Bike Painting')">Find Provider</button></div>
+
+<div class="problem-card"><div class="problem-icon">🛠️</div><h3>Bike Repair</h3><p>Complete bike repair service.</p><button class="select-btn" onclick="selectProblem('Bike Repair')">Find Provider</button></div>
+
+</div>
+
+<a href="index.html" class="back-btn">← Back to Services</a>
+
+</div>
+
+<script>
+function selectProblem(problem){
+window.location.href="bike-providers.html?problem="+encodeURIComponent(problem);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Computer Repair | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: white;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+/* ================= MAIN ================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* ================= PROBLEMS ================= */
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.problem-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.problem-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    background: #1d4ed8;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-btn {
+    display: block;
+
+    width: 180px;
+
+    margin: 40px auto 0;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .problems {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .problems {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="navbar">
+
+    <div class="logo">
+        Local<span>ServicesHub</span>
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h1>
+            💻 Computer Repair Services
+        </h1>
+
+        <p>
+            What computer problem do you have?
+        </p>
+
+    </div>
+
+
+    <div class="problems">
+
+
+        <!-- 1 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🐌
+            </div>
+
+            <h3>
+                Computer Running Slow
+            </h3>
+
+            <p>
+                Fix slow computer performance and speed issues.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Computer Running Slow')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🖥️
+            </div>
+
+            <h3>
+                Computer Not Starting
+            </h3>
+
+            <p>
+                Diagnose and repair computer startup problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Computer Not Starting')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                💾
+            </div>
+
+            <h3>
+                Hard Disk Problem
+            </h3>
+
+            <p>
+                Hard disk checking, repair and replacement.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Hard Disk Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🧠
+            </div>
+
+            <h3>
+                RAM Problem
+            </h3>
+
+            <p>
+                RAM testing, replacement and installation.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('RAM Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🦠
+            </div>
+
+            <h3>
+                Virus & Malware Removal
+            </h3>
+
+            <p>
+                Remove viruses and unwanted software.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Virus and Malware Removal')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🪟
+            </div>
+
+            <h3>
+                Windows Problem
+            </h3>
+
+            <p>
+                Windows installation, errors and troubleshooting.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Windows Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                ⌨️
+            </div>
+
+            <h3>
+                Keyboard Problem
+            </h3>
+
+            <p>
+                Repair or replace damaged keyboards.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Keyboard Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🖱️
+            </div>
+
+            <h3>
+                Mouse Problem
+            </h3>
+
+            <p>
+                Diagnose and repair mouse connection problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Mouse Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🌐
+            </div>
+
+            <h3>
+                Internet Problem
+            </h3>
+
+            <p>
+                Fix Wi-Fi, network and internet connection problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Internet Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔌
+            </div>
+
+            <h3>
+                Power Problem
+            </h3>
+
+            <p>
+                Diagnose computer power and charging problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Computer Power Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔊
+            </div>
+
+            <h3>
+                Speaker Problem
+            </h3>
+
+            <p>
+                Fix computer sound and speaker problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Speaker Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔧
+            </div>
+
+            <h3>
+                Computer Maintenance
+            </h3>
+
+            <p>
+                Complete computer cleaning and maintenance.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Computer Maintenance')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <a href="index.html" class="back-btn">
+        ← Back to Services
+    </a>
+
+
+</div>
+
+
+<script>
+
+function selectProblem(problem) {
+
+    window.location.href =
+        "computer-providers.html?problem=" +
+        encodeURIComponent(problem);
+
+}
+
+</script>
+
+
+</body>
+
+</html>

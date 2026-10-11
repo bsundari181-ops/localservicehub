@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Photography | LocalServicesHub</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#f8fafc;color:#1e293b}
+.logo{padding:20px 30px;background:white;border-bottom:1px solid #ddd;font-size:24px;font-weight:bold;color:#2563eb}.logo span{color:#0f172a}
+.container{max-width:1100px;margin:auto;padding:55px 20px}.title{text-align:center;margin-bottom:40px}.title h1{font-size:36px;margin-bottom:10px}.title p{color:#64748b}
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.problem-card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:25px;text-align:center}.problem-icon{font-size:35px;margin-bottom:15px}.problem-card h3{margin-bottom:10px}.problem-card p{color:#64748b;font-size:14px;margin-bottom:15px}.select-btn{background:#2563eb;color:white;border:0;padding:11px 20px;border-radius:7px;font-weight:bold}.back-btn{display:block;width:180px;margin:40px auto;padding:12px;text-align:center;color:#2563eb;border:1px solid #2563eb;border-radius:7px;font-weight:bold}
+@media(max-width:800px){.problems{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.problems{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="logo">Local<span>ServicesHub</span></div>
+<div class="container">
+<div class="title"><h1>📸 Photography Services</h1><p>What photography service do you need?</p></div>
+<div class="problems">
+
+<div class="problem-card"><div class="problem-icon">💍</div><h3>Wedding Photography</h3><p>Photography for weddings.</p><button class="select-btn" onclick="selectProblem('Wedding Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🎂</div><h3>Birthday Photography</h3><p>Photography for birthday events.</p><button class="select-btn" onclick="selectProblem('Birthday Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🎉</div><h3>Event Photography</h3><p>Photography for special events.</p><button class="select-btn" onclick="selectProblem('Event Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">📷</div><h3>Portrait Photography</h3><p>Professional portrait photos.</p><button class="select-btn" onclick="selectProblem('Portrait Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">👶</div><h3>Baby Photography</h3><p>Baby and child photography.</p><button class="select-btn" onclick="selectProblem('Baby Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🏢</div><h3>Corporate Photography</h3><p>Professional business photography.</p><button class="select-btn" onclick="selectProblem('Corporate Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🏠</div><h3>Product Photography</h3><p>Photography for products.</p><button class="select-btn" onclick="selectProblem('Product Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🎓</div><h3>Graduation Photography</h3><p>Photography for graduation events.</p><button class="select-btn" onclick="selectProblem('Graduation Photography')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🎥</div><h3>Photo & Video Package</h3><p>Complete photo and video service.</p><button class="select-btn" onclick="selectProblem('Photo and Video Package')">Find Provider</button></div>
+
+</div>
+<a href="index.html" class="back-btn">← Back to Services</a>
+</div>
+<script>
+function selectProblem(problem){
+window.location.href="photography-providers.html?problem="+encodeURIComponent(problem);
+}
+</script>
+</body>
+</html>

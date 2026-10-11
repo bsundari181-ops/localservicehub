@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mobile Repair | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: white;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+/* ================= MAIN ================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* ================= PROBLEMS ================= */
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.problem-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.problem-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    background: #1d4ed8;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-btn {
+    display: block;
+
+    width: 180px;
+
+    margin: 40px auto 0;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .problems {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .problems {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="navbar">
+
+    <div class="logo">
+        Local<span>ServicesHub</span>
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h1>
+            📱 Mobile Repair Services
+        </h1>
+
+        <p>
+            What mobile problem do you have?
+        </p>
+
+    </div>
+
+
+    <div class="problems">
+
+
+        <!-- 1 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                📱
+            </div>
+
+            <h3>
+                Screen Damage
+            </h3>
+
+            <p>
+                Cracked, broken or damaged mobile screen.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Screen Damage')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔋
+            </div>
+
+            <h3>
+                Battery Problem
+            </h3>
+
+            <p>
+                Battery draining, charging or replacement issues.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Battery Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔌
+            </div>
+
+            <h3>
+                Charging Problem
+            </h3>
+
+            <p>
+                Mobile not charging or charging slowly.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Charging Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔊
+            </div>
+
+            <h3>
+                Speaker Problem
+            </h3>
+
+            <p>
+                Fix low, distorted or no sound from the speaker.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Speaker Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🎤
+            </div>
+
+            <h3>
+                Microphone Problem
+            </h3>
+
+            <p>
+                Fix microphone and voice recording problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Microphone Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                📷
+            </div>
+
+            <h3>
+                Camera Problem
+            </h3>
+
+            <p>
+                Repair camera focus, display and camera issues.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Camera Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                📶
+            </div>
+
+            <h3>
+                Network Problem
+            </h3>
+
+            <p>
+                Fix mobile network and signal problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Network Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                📡
+            </div>
+
+            <h3>
+                Wi-Fi / Bluetooth Problem
+            </h3>
+
+            <p>
+                Fix Wi-Fi, Bluetooth and connectivity issues.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Wi-Fi and Bluetooth Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🐌
+            </div>
+
+            <h3>
+                Mobile Running Slow
+            </h3>
+
+            <p>
+                Improve slow performance and app problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Mobile Running Slow')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔄
+            </div>
+
+            <h3>
+                Software Problem
+            </h3>
+
+            <p>
+                Software errors, updates and system problems.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Mobile Software Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔐
+            </div>
+
+            <h3>
+                Unlocking Problem
+            </h3>
+
+            <p>
+                Help with supported device access and setup issues.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Mobile Unlocking Problem')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🛠️
+            </div>
+
+            <h3>
+                General Mobile Service
+            </h3>
+
+            <p>
+                General inspection and mobile maintenance.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('General Mobile Service')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <a href="index.html" class="back-btn">
+        ← Back to Services
+    </a>
+
+
+</div>
+
+
+<script>
+
+function selectProblem(problem) {
+
+    window.location.href =
+        "mobile-providers.html?problem=" +
+        encodeURIComponent(problem);
+
+}
+
+</script>
+
+
+</body>
+
+</html>

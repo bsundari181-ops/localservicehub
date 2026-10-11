@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TV Repair | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 18px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+}
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.problem-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.problem-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    background: #1d4ed8;
+}
+
+.back-btn {
+    display: block;
+    width: 180px;
+    margin: 40px auto 0;
+    padding: 12px;
+    text-align: center;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+
+    .problems {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .problems {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+```
+<div class="logo">
+    Local<span>ServicesHub</span>
+</div>
+```
+
+</div>
+
+<div class="container">
+
+```
+<div class="title">
+
+    <h1>
+        📺 TV Repair
+    </h1>
+
+    <p>
+        What TV problem do you have?
+    </p>
+
+</div>
+
+
+<div class="problems">
+
+
+    <!-- 1 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔌
+        </div>
+
+        <h3>
+            TV Not Turning On
+        </h3>
+
+        <p>
+            TV does not turn on or has no power.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Not Turning On')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            📺
+        </div>
+
+        <h3>
+            No Display
+        </h3>
+
+        <p>
+            TV turns on but there is no picture on the screen.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV No Display')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔊
+        </div>
+
+        <h3>
+            No Sound
+        </h3>
+
+        <p>
+            TV picture works but there is no sound.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV No Sound')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🖥️
+        </div>
+
+        <h3>
+            Screen Problem
+        </h3>
+
+        <p>
+            Lines, spots, flickering or other screen problems.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Screen Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🎮
+        </div>
+
+        <h3>
+            Remote Problem
+        </h3>
+
+        <p>
+            TV remote is not working properly.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Remote Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔗
+        </div>
+
+        <h3>
+            HDMI Problem
+        </h3>
+
+        <p>
+            HDMI port or connected device is not working.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV HDMI Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            📶
+        </div>
+
+        <h3>
+            Wi-Fi / Internet Problem
+        </h3>
+
+        <p>
+            Smart TV cannot connect to the internet.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV WiFi Internet Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            ⚙️
+        </div>
+
+        <h3>
+            Smart TV Software Problem
+        </h3>
+
+        <p>
+            Apps, software or smart TV features are not working.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('Smart TV Software Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            ⚡
+        </div>
+
+        <h3>
+            Power Problem
+        </h3>
+
+        <p>
+            TV has power supply or power board issues.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Power Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🎨
+        </div>
+
+        <h3>
+            Picture Quality Problem
+        </h3>
+
+        <p>
+            Picture is blurry, dark, distorted or has wrong colors.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Picture Quality Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🔘
+        </div>
+
+        <h3>
+            Button / Control Problem
+        </h3>
+
+        <p>
+            TV buttons or control panel are not working.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('TV Button Control Problem')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="problem-card">
+
+        <div class="problem-icon">
+            🛠️
+        </div>
+
+        <h3>
+            General TV Service
+        </h3>
+
+        <p>
+            Complete TV inspection, repair and maintenance.
+        </p>
+
+        <button
+            class="select-btn"
+            onclick="selectProblem('General TV Service')">
+
+            Find Provider
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<a href="index.html" class="back-btn">
+    ← Back to Services
+</a>
+```
+
+</div>
+
+<script>
+
+function selectProblem(problem) {
+
+    window.location.href =
+        "tv-repair-providers.html?problem=" +
+        encodeURIComponent(problem);
+
+}
+
+</script>
+
+</body>
+
+</html>

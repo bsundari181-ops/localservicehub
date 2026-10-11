@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wellness | LocalServicesHub</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#f8fafc;color:#1e293b}
+.logo{padding:20px 30px;background:white;border-bottom:1px solid #ddd;font-size:24px;font-weight:bold;color:#2563eb}.logo span{color:#0f172a}
+.container{max-width:1100px;margin:auto;padding:55px 20px}.title{text-align:center;margin-bottom:40px}.title h1{font-size:36px;margin-bottom:10px}.title p{color:#64748b}
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.problem-card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:25px;text-align:center}.problem-icon{font-size:35px;margin-bottom:15px}.problem-card h3{margin-bottom:10px}.problem-card p{color:#64748b;font-size:14px;margin-bottom:15px}.select-btn{background:#2563eb;color:white;border:0;padding:11px 20px;border-radius:7px;font-weight:bold}.back-btn{display:block;width:180px;margin:40px auto;padding:12px;text-align:center;color:#2563eb;border:1px solid #2563eb;border-radius:7px;font-weight:bold}
+@media(max-width:800px){.problems{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.problems{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="logo">Local<span>ServicesHub</span></div>
+<div class="container">
+<div class="title"><h1>💆 Wellness Services</h1><p>What wellness service do you need?</p></div>
+<div class="problems">
+
+<div class="problem-card"><div class="problem-icon">💆</div><h3>Relaxation Massage</h3><p>Relaxing massage service.</p><button class="select-btn" onclick="selectProblem('Relaxation Massage')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🧘</div><h3>Yoga Session</h3><p>Personal or group yoga sessions.</p><button class="select-btn" onclick="selectProblem('Yoga Session')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🧘‍♀️</div><h3>Meditation Session</h3><p>Guided meditation sessions.</p><button class="select-btn" onclick="selectProblem('Meditation Session')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">💆‍♂️</div><h3>Head Massage</h3><p>Relaxing head massage.</p><button class="select-btn" onclick="selectProblem('Head Massage')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🧘</div><h3>Stress Relaxation</h3><p>Wellness and relaxation sessions.</p><button class="select-btn" onclick="selectProblem('Stress Relaxation')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🏃</div><h3>Fitness Training</h3><p>Personal fitness training.</p><button class="select-btn" onclick="selectProblem('Fitness Training')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🧘</div><h3>Personal Yoga</h3><p>One-to-one yoga guidance.</p><button class="select-btn" onclick="selectProblem('Personal Yoga')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🌿</div><h3>Wellness Consultation</h3><p>General wellness guidance.</p><button class="select-btn" onclick="selectProblem('Wellness Consultation')">Find Provider</button></div>
+<div class="problem-card"><div class="problem-icon">🛌</div><h3>Relaxation Session</h3><p>Personal relaxation service.</p><button class="select-btn" onclick="selectProblem('Relaxation Session')">Find Provider</button></div>
+
+</div>
+<a href="index.html" class="back-btn">← Back to Services</a>
+</div>
+<script>
+function selectProblem(problem){
+window.location.href="wellness-providers.html?problem="+encodeURIComponent(problem);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carpentry Services | LocalServicesHub</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: white;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* CARPENTRY SERVICES */
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+.problem-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.problem-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    background: #1d4ed8;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: block;
+
+    width: 180px;
+
+    margin: 40px auto 0;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .problems {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .problems {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        Local<span>ServicesHub</span>
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h1>
+            🪚 Carpentry Services
+        </h1>
+
+        <p>
+            What carpentry service do you need?
+        </p>
+
+    </div>
+
+
+    <div class="problems">
+
+
+        <!-- 1 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🪑
+            </div>
+
+            <h3>
+                Furniture Repair
+            </h3>
+
+            <p>
+                Repair damaged tables, chairs and furniture.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Furniture Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🚪
+            </div>
+
+            <h3>
+                Door Repair
+            </h3>
+
+            <p>
+                Repair and adjust wooden doors.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Door Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🪟
+            </div>
+
+            <h3>
+                Window Repair
+            </h3>
+
+            <p>
+                Repair wooden windows and frames.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Window Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🛏️
+            </div>
+
+            <h3>
+                Bed Repair
+            </h3>
+
+            <p>
+                Repair and strengthen wooden beds.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Bed Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🗄️
+            </div>
+
+            <h3>
+                Cupboard Repair
+            </h3>
+
+            <p>
+                Repair cupboards, wardrobes and cabinets.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Cupboard Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🔨
+            </div>
+
+            <h3>
+                Custom Woodwork
+            </h3>
+
+            <p>
+                Custom furniture and wooden work.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Custom Woodwork')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🪵
+            </div>
+
+            <h3>
+                Wooden Flooring
+            </h3>
+
+            <p>
+                Wooden floor installation and repair.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Wooden Flooring')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🪜
+            </div>
+
+            <h3>
+                Wooden Stair Repair
+            </h3>
+
+            <p>
+                Repair and maintain wooden stairs.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Wooden Stair Repair')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="problem-card">
+
+            <div class="problem-icon">
+                🧰
+            </div>
+
+            <h3>
+                Furniture Installation
+            </h3>
+
+            <p>
+                Assemble and install wooden furniture.
+            </p>
+
+            <button
+                class="select-btn"
+                onclick="selectProblem('Furniture Installation')">
+
+                Find Provider
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <a href="index.html" class="back-btn">
+        ← Back to Services
+    </a>
+
+
+</div>
+
+
+<script>
+
+function selectProblem(problem) {
+
+    window.location.href =
+        "carpentry-providers.html?problem=" +
+        encodeURIComponent(problem);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
